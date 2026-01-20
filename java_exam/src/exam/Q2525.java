@@ -3,7 +3,6 @@ package exam;
 public class Q2525 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int start_H = 23;
 		int start_M = 48;
 		int need_M = 25;

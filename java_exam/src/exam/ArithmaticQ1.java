@@ -3,7 +3,6 @@ package exam;
 public class ArithmaticQ1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int minutes = 5;
 		int seconds = 50;
 		

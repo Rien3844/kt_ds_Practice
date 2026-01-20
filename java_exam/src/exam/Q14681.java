@@ -3,7 +3,6 @@ package exam;
 public class Q14681 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int a_x = 12;
 		int a_y = 5;
 		int b_x = 9;

@@ -3,7 +3,6 @@ package exam;
 public class ArithmaticQ4 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int subjectA = 100;
 		int subjectB = 80;
 		int subjectC = 95;

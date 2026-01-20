@@ -3,7 +3,6 @@ package exam;
 public class Q18108 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int by = 2541;
 		int sy = by - 543;
 		

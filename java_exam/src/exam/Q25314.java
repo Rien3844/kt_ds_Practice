@@ -3,7 +3,6 @@ package exam;
 public class Q25314 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int N = 20;
 		int a = N / 4;
 		int answer = 0;

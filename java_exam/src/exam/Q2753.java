@@ -3,7 +3,6 @@ package exam;
 public class Q2753 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int year = 2000;
 		int fourMultiple = year % 4;
 		int oneHundMultiple = year % 100;

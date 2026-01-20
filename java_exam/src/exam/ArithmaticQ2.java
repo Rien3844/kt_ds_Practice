@@ -3,7 +3,6 @@ package exam;
 public class ArithmaticQ2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int processTime = 145;
 		int minutes = processTime / 60;
 		int seconds = processTime % 60;

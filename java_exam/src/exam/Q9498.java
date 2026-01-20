@@ -3,7 +3,6 @@ package exam;
 public class Q9498 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int examScore = 100;
 		if(examScore <= 100 && examScore >= 90) {
 			System.out.println("A");

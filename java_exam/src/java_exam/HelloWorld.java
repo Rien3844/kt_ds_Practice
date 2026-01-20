@@ -9,7 +9,6 @@ public class HelloWorld {
 /*	public static void main(String[] args) {...}
 	HelloWorld 클래스를 실행시킬 수 있는 메소드.*/
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("Hello, World!");
 		System.out.println(3030300);
 		System.out.println(32.32323);

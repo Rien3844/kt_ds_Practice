@@ -3,7 +3,6 @@ package java_exam;
 public class CompareExam {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int age = 10;
 		
 		// age가 10대인지 확인.

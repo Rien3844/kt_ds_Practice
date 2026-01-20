@@ -3,7 +3,6 @@ package exam;
 public class IfQ1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int money = 1_000_000;
 		
 		int father = 40;
