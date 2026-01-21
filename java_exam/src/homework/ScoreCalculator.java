@@ -13,7 +13,7 @@ public class ScoreCalculator {
 	
 	public static double calcAverage(int amount, int subjectCount) {
 		//평균을 구함.
-		double average = amount / subjectCount;
+		double average = amount / (double) subjectCount;
 		
 		return average;
 	}
