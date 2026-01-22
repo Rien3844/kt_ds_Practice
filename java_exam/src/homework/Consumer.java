@@ -29,7 +29,7 @@ public class Consumer {
 	boolean canBuy = true;
 	
 	public void purchase(int buyGoods) {
-
+		
 		weightOfShoppingCart += buyGoods * 500;
 		
 		maxWeightOfShoppingCart -= weightOfShoppingCart;

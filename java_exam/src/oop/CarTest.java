@@ -4,7 +4,7 @@ public class CarTest {
 	
 	public static void main(String[] args) {
 		
-		Car kona = new Car();
+		Car kona = new Car("KONA");
 		System.out.println(kona);
 		
 		kona.pressEngineStartButton();
@@ -19,7 +19,7 @@ public class CarTest {
 		
 		System.out.println();
 		
-		Car carnival = new Car();
+		Car carnival = new Car("CARNIVAL");
 		System.out.println(carnival);
 		
 		carnival.pressEngineStartButton();

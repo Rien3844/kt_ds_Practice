@@ -22,16 +22,16 @@ package homework;
 //
 //상품의 판매 프로세스가 종료되었다면 판매자의 재고 수, 판매자의 자본금을 출력합니다.
 public class Seller {
-	int price = 1000; // 상품 금액
+	int PRICE = 1000; // 상품 금액
 	int capital = 0; //자본금
 	int sellersGoods; //판매자가 소지한 상품의 개수
 	public void selling(int buyGoods) {
 	    
 		if(sellersGoods > buyGoods) {// 상품의 갯수가 산 상품보다 많으면 <== 상품이 남으면
 			sellersGoods -= buyGoods;
-			capital += buyGoods * price;
+			capital += buyGoods * PRICE;
 		}else {//남은 상품을 모두 사거나 더 사려고한다면
-			capital += sellersGoods * price;
+			capital += sellersGoods * PRICE;
 			sellersGoods = 0;
 			System.out.println("품절되었습니다.");
 		}

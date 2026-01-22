@@ -7,6 +7,10 @@ public class CraneGameMachine {
 	int dolls;
 	
 	
+	public CraneGameMachine(boolean isInsertCoin, int dolls) {
+		this.isInsertCoin = isInsertCoin;
+		this.dolls = dolls;
+	}
 //	인형뽑기 기계에 동전을 넣습니다.
 //	동전을 넣지 않으면 doGame()은 실행되지 않아야 합니다.
 //	동전을 넣으면 isInsertCoin 변수는 true가 되어야 합니다.

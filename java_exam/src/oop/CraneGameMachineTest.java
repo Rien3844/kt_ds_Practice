@@ -2,9 +2,7 @@ package oop;
 
 public class CraneGameMachineTest {
 	public static void main(String[] args) {
-		CraneGameMachine gameMachine = new CraneGameMachine();
-		gameMachine.isInsertCoin = false;
-		gameMachine.dolls = 10;
+		CraneGameMachine gameMachine = new CraneGameMachine(false, 10);
 
 		int result = 0;
 		

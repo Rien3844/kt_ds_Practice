@@ -14,18 +14,18 @@ public class SellerConsumerTest {
 		
 		System.out.println("-----------------------");
 		
-//		consumer.maxWeightOfShoppingCart = 5000;
-//		consumer.walletMoney = 15000;
-//		consumer.purchase(5);
-//		System.out.println();
+		consumer.maxWeightOfShoppingCart = 5000;
+		consumer.walletMoney = 15000;
+		consumer.purchase(5);
+		System.out.println();
 
 //		consumer.maxWeightOfShoppingCart = 5000;
 //		consumer.walletMoney = 15000;
 //		consumer.purchase(13); // 무게 초과(6500)
 //		System.out.println();
 
-		consumer.maxWeightOfShoppingCart = 100000;
-		consumer.walletMoney = 20000;
+//		consumer.maxWeightOfShoppingCart = 100000;
+//		consumer.walletMoney = 20000;
 		consumer.purchase(21); // 금액 초과(21000)
 	}
 }
