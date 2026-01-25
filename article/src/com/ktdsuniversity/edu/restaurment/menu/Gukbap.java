@@ -2,11 +2,14 @@ package com.ktdsuniversity.edu.restaurment.menu;
 
 public class Gukbap {
 	private String name;
-	private double weight;
+	private int weight;
+	private int price;
 	
-	public Gukbap(String name, double weight) {
+	public Gukbap(String name, int weight, int price) {
 		this.name = name;
 		this.weight = weight;
+		this.price = price;
+		
 	}
 	
 	public String getName() {
@@ -16,10 +19,17 @@ public class Gukbap {
 		this.name = name;
 	}
 	
-	public double getWeight() {
+	public int getWeight() {
 		return this.weight;
 	}
-	public void setWeight(double weight) {
+	public void setWeight(int weight) {
 		this.weight = weight;
+	}
+	
+	public int getPrice() {
+		return this.price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 }
