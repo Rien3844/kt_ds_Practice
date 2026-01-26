@@ -2,7 +2,17 @@ package com.ktdsuniversity.edu.coffee;
 
 public class CoffeeShopArray {
 
-	Coffee[] drinks;
+	private Coffee[] drinks;
+	private Coffee hot;
+	private Coffee ice;
+
+	public CoffeeShopArray() {
+//		this.hot = new Coffee("기본 아메리카노", 1500, 30);
+//		this.ice = new Coffee("아이스 아메리카노", 1500, 50);
+		this(new Coffee("기본 아메리카노", 1500, 30) ,
+				new Coffee("아이스 아메리카노", 1500, 50),
+				new Coffee("캐모마일 티", 6000, 20));
+	}
 	
 	public CoffeeShopArray(Coffee hot, Coffee ice, Coffee tea) {
 		this.drinks = new Coffee[3];
@@ -11,6 +21,23 @@ public class CoffeeShopArray {
 		this.drinks[2] = tea;
 	}
 	
+	public Coffee getHot() {
+		return this.hot;
+	}
+
+	public Coffee getIce() {
+		return this.ice;
+	}
+	
+	public int orderCoffee() {
+		int price = this.orderCoffee( 0 );
+		return price;
+	}//가장 첫 번째 메뉴를 한 개 주문한다.
+	
+	public int orderCoffee(int menu) {
+		int price = this.orderCoffee(menu, 1);
+		return price;
+	}// 오버라이딩을 하는 가장 쉬운, 보편적인 방법. => 메뉴 한 개만 주문한다.
 	/**
 	 * <pre>
 	 * 커피숍에서 커피를 판매한다.
