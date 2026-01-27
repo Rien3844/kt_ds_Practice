@@ -1,4 +1,4 @@
-package exam;
+package exam.string;
 
 import java.util.Scanner;
 
