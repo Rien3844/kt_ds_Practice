@@ -10,7 +10,7 @@ public class DrinkVendingMachine {
 	/* 2026-01-28 : 환불 기능 추가를 위한 수정 끝 */
 	
 	private Drink[] drinks;
-	
+	 
 	public DrinkVendingMachine( Drink drink1, Drink drink2, Drink drink3, Drink drink4 ) {
 		this.drinks = new Drink[4];
 		this.drinks[0] = drink1;
