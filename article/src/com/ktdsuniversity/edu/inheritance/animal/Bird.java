@@ -27,4 +27,12 @@ public class Bird extends Animal {
 		this.isFly = false;
 		super.setSpeed(walkingSpeed);
 	}
+	
+	// Bird 클래스의 최종 Super Class 인 Object 클래스의 toString()메소드를 다시 정의한다.
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String str = "Bird [name: %s, isFly: %s]";
+		return str.formatted(super.getName(), this.isFly);
+	}
 }

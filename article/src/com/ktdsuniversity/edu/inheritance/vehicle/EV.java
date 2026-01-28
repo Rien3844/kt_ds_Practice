@@ -5,7 +5,7 @@ public class EV extends Vehicle {
 	private int batteryAmount;
 
 	public EV(String modelName, int batteryAmount) {
-		super(modelName);
+		super(modelName, "위이이잉");
 
 		this.batteryAmount = batteryAmount;
 	}

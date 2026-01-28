@@ -1,33 +1,47 @@
 package com.ktdsuniversity.edu.vendingmachine;
 
 import com.ktdsuniversity.edu.vendingmachine.item.Drink;
-import com.ktdsuniversity.edu.vendingmachine.machine.DrinkVendingMachineArray;
+import com.ktdsuniversity.edu.vendingmachine.machine.DrinkVendingMachine;
 
 public class DrinkVendingMachineTest {
 
 	public static void main(String[] args) {
-		Drink bak = new Drink("박카스", 900, 15);
-		Drink mon = new Drink("몬스터", 1500, 20);
-		Drink hot = new Drink("핫식스", 1300, 10);
-		Drink mil = new Drink("밀키스", 1400, 5);
 		
-		DrinkVendingMachineArray dvm = new DrinkVendingMachineArray(bak, mon, hot, mil);
+		Drink 박카스 = new Drink("박카스", 900, 15);
+		Drink 몬스터 = new Drink("몬스터", 1500, 20);
+		Drink 핫식스 = new Drink("핫식스", 1300, 10);
+		Drink 밀키스 = new Drink("밀키스", 1400, 5);
 		
-		int price = dvm.orderDrink(1, 10);
-		System.out.println(price);
-		price = dvm.orderDrink(2, 5);
-		System.out.println(price);
-		price = dvm.orderDrink(3, 5);
-		System.out.println(price);
-		price = dvm.orderDrink(4, 5);
+		DrinkVendingMachine lotte = new DrinkVendingMachine(박카스, 몬스터, 핫식스, 밀키스);
+		
+		lotte.printAllDrinkInfo();
+		
+		int price = lotte.pressDrinkButton(0, 3, 3000);
 		System.out.println(price);
 		
-		dvm.stockUpDrink(3, 5);
+		price = lotte.pressDrinkButton(1, 5, 3000);
+		System.out.println(price);
 		
-		dvm.stockUpDrink(5, 5);
+		price = lotte.pressDrinkButton(2, 15, 3000);
+		System.out.println(price);
 		
-		dvm.goodsStockOutput();
+		price = lotte.pressDrinkButton(3, 55, 3000);
+		System.out.println(price);
 		
+		price = lotte.pressDrinkButton(4, 1, 3000);
+		System.out.println(price);
+		
+		lotte.printAllDrinkInfo();
+		
+		lotte.fillDrink(0, 10);
+		lotte.fillDrink(1, 10);
+		lotte.fillDrink(2, 10);
+		lotte.fillDrink(3, 10);
+		lotte.fillDrink(9, 10);
+		
+		lotte.printAllDrinkInfo();
+		
+		lotte.fillDrink(0, 0);
 		
 	}
 }

@@ -64,4 +64,17 @@ public class Animal {
 	public boolean isDead() {
 		return this.hitPoint <= 0;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		if (this == obj) {
+			return true;
+		}
+		if (obj instanceof Animal other) {
+			return other.getName().equals(this.name);
+		}
+
+		return super.equals(obj);
+	}
 }

@@ -5,6 +5,12 @@ public class Zoo {
 	public static void main(String[] args) {
 		
 		Animal duck = new Bird("오리", "꽥", 15f, 20f, 50f);
+		Animal duck2 = new Bird("오리", "꽥", 15f, 20f, 50f);
+		
+		System.out.println(duck.getName().equals(duck2.getName()));
+		System.out.println(" == 비교 : " + (duck == duck2));// 메모리가 다름 => false
+		System.out.println("equal 비교 : " + duck.equals(duck2));// 이름만 같으면 같은거 ==> true
+		
 		duck.howling();
 		duck.move();
 		

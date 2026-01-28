@@ -3,9 +3,13 @@ package com.ktdsuniversity.edu.inheritance.vehicle;
 public class SportsCar extends Vehicle {
 
 	private boolean enabledTurbo;
+	
+	public SportsCar(String modelName, String engineSound) {
+		super(modelName, engineSound);
+	}
 
 	public SportsCar(String modelName) {
-		super(modelName);
+		super(modelName, "부앙!!!");
 	}
 
 	public void turboMode() {
