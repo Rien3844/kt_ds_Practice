@@ -1,16 +1,47 @@
 package homework.inheritance;
 
-import homework.inheritance.product.Product;
-
 public class Consumer {
-	
-	public static void main(String[] args) {
-		Product food = new Product("고기", 25000);
-		/* 상품 종류 박아넣기
-		 * 상품 구매 - 마트 편의점 백화점별로
-		 * 그럼 해당 기능은? => 구매 및 거스름돈 = 마트
-		 * 포인트 = 편의점
-		 * 할인 = 백화점
-		 * */
+	private String name;
+	private int wallet;
+	private String consRating;
+	private float point;
+
+	//consRating == 1 => "일반등급"
+	//consRating == 2 => "VIP등급"
+	//consRating == 3 => "VVIP등급"
+	public Consumer(String name, int wallet, String consRating, float point) {
+		this.name = name;
+		this.wallet = wallet;
+		this.consRating = consRating;
+		this.point = point;
 	}
+
+	public String getName() {
+		return this.name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getWallet() {
+		return this.wallet;
+	}
+	public void setWallet(int wallet) {
+		this.wallet = wallet;
+	}
+
+	public String getConsRating() {
+		return this.consRating;
+	}
+	public void setConsRating(String consRating) {
+		this.consRating = consRating;
+	}
+
+	public float getPoint() {
+		return this.point;
+	}
+	public void setPoint(float point) {
+		this.point = point;
+	}
+
 }
