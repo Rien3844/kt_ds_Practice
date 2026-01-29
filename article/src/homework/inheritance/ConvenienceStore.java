@@ -24,7 +24,7 @@ public class ConvenienceStore extends Mart {
 		System.out.println("적립된 포인트 : " + accuPoint + " | 총 누적 포인트 : " + cons.getPoint() );
 	}
 	
-	public int useBuyPoint(Consumer cons, int productNum) {
+	public int conStorePayment(Consumer cons, int productNum) {
 		if(!canSell(cons, productNum)) {
 			return 0;
 		}

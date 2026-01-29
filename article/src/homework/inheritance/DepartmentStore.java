@@ -18,6 +18,37 @@ public class DepartmentStore extends ConvenienceStore {
 			bargain = 0.1f;
 		}
 	}
+	
+	public void savePoint(Consumer cons, int productPrice) {
+		float accuPoint = 0;
+		if(cons.getConsRating() == "일반") {
+			accuPoint += productPrice * 0.005f;
+		}else if(cons.getConsRating() == "VVIP") {//vvip
+			accuPoint += productPrice * 0.03f;
+		}
+		cons.setPoint(cons.getPoint() + accuPoint);
+		System.out.println("적립된 포인트 : " + accuPoint + " | 총 누적 포인트 : " + cons.getPoint() );
+	}
+	
+	//백화점 결제 만드는중
+	public int depStorePayment(Consumer cons, int productNum) {
+		if(!canSell(cons, productNum)) {
+			return 0;
+		}
+		int productPrice = this.getProducts()[productNum].getPrice();
+		int usePoint = 0;
+		
+		if(cons.getConsRating() == "일반") {
+			if(cons.getPoint() >= 10000) {
+				usePoint = (int) cons.getPoint();
+				cons.setPoint(cons.getPoint() - usePoint);
+					
+				}
+				cons.setPoint(usePoint);
+			}
+		
+		return 0;
+	}
 }
 /**
  * 포인트 0.5퍼 적립 만들어야함. -> 편의점 참고하면될듯?
