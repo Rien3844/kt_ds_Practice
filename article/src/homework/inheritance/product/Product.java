@@ -1,26 +1,67 @@
-package homework.inheritance.product;
+package homework.inheritance;
 
-public class Product {
-	private String name;
-	private int price;
+import homework.inheritance.product.Product;
 
-	public Product(String name, int price) {
-		this.name = name;
-		this.price = price;
+public class Mart {
+	Product[] products;
+	
+	private int inputMoney; // 받은돈, -상품가격해서 돌려줌(거스름돈)
+
+	public Mart(Product[] products) {
+		this.products = products;
 	}
 	
-	public String getName() {
-		return this.name;
-	}
-	public void setName(String name) {
-		this.name = name;
+	public Product[] getProducts() {
+		return this.products;
 	}
 	
-	public int getPrice() {
-		return this.price;
+	public void setProducts(Product[] products) {
+		this.products = products;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	
+	public int getInputMoney() {
+		return this.inputMoney;
+	}
+	
+	public void setInputMoney(int inputMoney) {
+		this.inputMoney = inputMoney;
 	}
 
+	public boolean canSell(Consumer cons, int productNum) {
+		if (productNum < 0 || productNum >= this.products.length) {
+			System.out.println("존재하지 않는 상품입니다.");
+			return false;
+		}
+		return true;
+	}
+
+	public void printSellStatus(int price, int payMoney) {
+		this.inputMoney += price; // 직접 필드에 더하거나 setter 이용
+		System.out.println("결제 금액: " + price + "원");
+		System.out.println("거스름돈: " + (payMoney - price) + "원");
+		System.out.println("가게 누적 판매 금액: " + this.inputMoney + "원");
+	}
+
+	public int sell(Consumer cons, int productNum) {
+		if (!canSell(cons, productNum))
+			return 0;
+
+		int price = this.products[productNum].getPrice();
+		if (cons.getWallet() < price) {
+			System.out.println("금액 부족");
+			return 0;
+		}
+
+		printSellStatus(price, cons.getWallet());
+		return price;
+	}
+
+	public void printProduct(Product[] products) {
+		System.out.println("----- 상품 목록 -----");
+		for (int i = 0; i < products.length; i++) {
+			System.out.println(this.products[i].getName() + ": " + this.products[i].getPrice() + "원");
+		}
+		System.out.println("-------------------");
+	}
+	
 }
