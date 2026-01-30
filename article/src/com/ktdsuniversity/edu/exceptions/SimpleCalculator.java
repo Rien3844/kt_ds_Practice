@@ -56,8 +56,8 @@ public class SimpleCalculator {
 			System.out.println("0으로 나누려했습니다. 숫자를 제대로 작성해서 다시 실행하세요.");
 		} catch (WrongOperatorException woe) {// 연산자를 잘못 작성했을 때
 			System.out.println("지원하지 않는 연산자입니다. +, -, *, / 중에 선택해서 다시 실행하세요.");
-		}//셋 다 같은 예외라 나머지를 삭제하라는 오류 발생.
-		// ==> 이런 상황에서 사용하는게 사용자예외.
+		} // 셋 다 같은 예외라 나머지를 삭제하라는 오류 발생.
+			// ==> 이런 상황에서 사용하는게 사용자예외.
 		System.out.println(result);
 
 		try {

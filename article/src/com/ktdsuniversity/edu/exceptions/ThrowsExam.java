@@ -75,6 +75,7 @@ public class ThrowsExam {
 //			return null;
 //		}
 //	}
-	//모든 try - catch를 throw로 넘김. ==> 다른 곳에서 해당 코드를 사용할 때 사용할 때 마다 try - catch를 해줘야함.
-	//절대절대절대 예외를 위임하지마 절대.
+	// 모든 try - catch를 throw로 넘김. ==> 다른 곳에서 해당 코드를 사용할 때 사용할 때 마다 try - catch를
+	// 해줘야함.
+	// 절대절대절대 예외를 위임하지마 절대.
 }
