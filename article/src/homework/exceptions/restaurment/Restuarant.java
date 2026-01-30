@@ -1,5 +1,9 @@
 package homework.exceptions.restaurment;
 
+import homework.exceptions.restaurment.custom.NotEnoughMoney;
+import homework.exceptions.restaurment.custom.SoldOutException;
+import homework.exceptions.restaurment.custom.WithoutMenuException;
+
 public class Restuarant {
 
 	private String name;
@@ -53,12 +57,14 @@ public class Restuarant {
 
 	public Menu servMenu(Customer customer, int menuIndex) {
 		if (menuIndex < 0 || menuIndex >= this.menus.length) {
-			return null; // 없는 메뉴
+			throw new WithoutMenuException("존재하지 않는 메뉴");
+			// return null; // 없는 메뉴
 		}
 
 		Menu menu = this.menus[menuIndex];
 		if (menu.getStock() == 0) {
-			return null; // 품절
+			throw new SoldOutException(menu + "품절");
+			// return null; // 품절
 		}
 
 		System.out.println("주문 금액: " + menu.getPrice());
@@ -67,9 +73,10 @@ public class Restuarant {
 			customer.giveMoney(this, menu.getPrice());
 			return menu;
 		}
-		System.out.println(customer.getName() + "의 소지금 부족");
+		// System.out.println(customer.getName() + "의 소지금 부족");
+		throw new NotEnoughMoney(customer.getName() + "의 소지금 부족");
 
-		return null;
+		// return null;
 	}
 
 	public boolean isFullCustomer(Customer customer) {

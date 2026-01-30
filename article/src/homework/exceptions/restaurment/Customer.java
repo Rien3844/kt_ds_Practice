@@ -1,5 +1,8 @@
 package homework.exceptions.restaurment;
 
+import homework.exceptions.restaurment.custom.DrunkenException;
+import homework.exceptions.restaurment.custom.FullException;
+
 public class Customer {
 
 	private String name;
@@ -46,7 +49,7 @@ public class Customer {
 
 	public void order(Restuarant restuarnt, int menuIndex) {
 		this.printState();
-		
+
 		Menu menu = restuarnt.servMenu(this, menuIndex);
 		if (menu != null) {
 			if (menu.getIsAlcohol()) {
@@ -54,19 +57,21 @@ public class Customer {
 					System.out.println("주문 성공");
 					this.addAlcoholRate(menu.getAlcohol());
 				} else {
-					System.out.println("주문 실패 - 너무 취함");
+					// System.out.println("주문 실패 - 너무 취함");
+					throw new DrunkenException("주문 실패 - 너무 취함");
 				}
 			} else {
 				if (!restuarnt.isFullCustomer(this)) {
 					System.out.println("주문 성공");
 					this.fullRate += menu.getWeight();
 				} else {
-					System.out.println("주문 실패 - 너무 배부름");
+					// System.out.println("주문 실패 - 너무 배부름");
+					throw new FullException("주문 실패 - 너무 배부름");
 				}
 			}
 		}
 	}
-	
+
 	public void addAlcoholRate(double alcohol) {
 		this.alcoholRate += alcohol * 0.1;
 		this.alcoholRate = (int) (this.alcoholRate * 100) / 100d;
@@ -75,12 +80,12 @@ public class Customer {
 	public boolean isEnoughMoney(int price) {
 		return this.money >= price;
 	}
-	
+
 	public void giveMoney(Restuarant restaurant, int money) {
 		this.money -= money;
 		restaurant.addAccount(money);
 	}
-	
+
 	public void printState() {
 		System.out.println();
 		System.out.println("고객명 : " + this.name);

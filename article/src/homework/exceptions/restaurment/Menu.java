@@ -47,11 +47,11 @@ public class Menu {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
+
 	public int getStock() {
 		return this.stock;
 	}
-	
+
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
