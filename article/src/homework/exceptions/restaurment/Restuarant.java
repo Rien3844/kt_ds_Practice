@@ -57,13 +57,13 @@ public class Restuarant {
 
 	public Menu servMenu(Customer customer, int menuIndex) {
 		if (menuIndex < 0 || menuIndex >= this.menus.length) {
-			throw new WithoutMenuException("존재하지 않는 메뉴");
+			throw new WithoutMenuException("존재하지 않는 메뉴입니다.");
 			// return null; // 없는 메뉴
 		}
 
 		Menu menu = this.menus[menuIndex];
 		if (menu.getStock() == 0) {
-			throw new SoldOutException(menu + "품절");
+			throw new SoldOutException(menu.getName() + "는 품절 되었습니다.");
 			// return null; // 품절
 		}
 
@@ -74,7 +74,7 @@ public class Restuarant {
 			return menu;
 		}
 		// System.out.println(customer.getName() + "의 소지금 부족");
-		throw new NotEnoughMoney(customer.getName() + "의 소지금 부족");
+		throw new NotEnoughMoney(customer.getName() + "의 소지금이 부족합니다.");
 
 		// return null;
 	}
@@ -97,11 +97,11 @@ public class Restuarant {
 
 			System.out.print((i + 1) + ". ");
 			if (this.menus[i].getIsAlcohol()) {
-				System.out.print("주류");
+				System.out.print(menus[i].getName());
 				System.out.print(" / " + this.menus[i].getPrice() + "원");
 				System.out.print(" / " + this.menus[i].getAlcohol() + "%");
 			} else {
-				System.out.print("식사류");
+				System.out.print(menus[i].getName());
 				System.out.print(" / " + this.menus[i].getPrice() + "원");
 				System.out.print(" / " + this.menus[i].getWeight() + "g");
 			}

@@ -7,13 +7,15 @@ public class Menu {
 	private double alcohol;
 	private int price;
 	private int stock;
+	private String name;
 
-	public Menu(boolean isAlcohol, int weight, double alcohol, int price, int stock) {
+	public Menu(boolean isAlcohol, int weight, double alcohol, int price, int stock, String name) {
 		this.isAlcohol = isAlcohol;
 		this.weight = weight;
 		this.alcohol = alcohol;
 		this.price = price;
 		this.stock = stock;
+		this.name = name;
 	}
 
 	public boolean getIsAlcohol() {
@@ -54,6 +56,10 @@ public class Menu {
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 
 }

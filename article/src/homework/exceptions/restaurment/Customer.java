@@ -58,7 +58,7 @@ public class Customer {
 					this.addAlcoholRate(menu.getAlcohol());
 				} else {
 					// System.out.println("주문 실패 - 너무 취함");
-					throw new DrunkenException("주문 실패 - 너무 취함");
+					throw new DrunkenException("주문 실패 - 너무 취했습니다.");
 				}
 			} else {
 				if (!restuarnt.isFullCustomer(this)) {
@@ -66,7 +66,7 @@ public class Customer {
 					this.fullRate += menu.getWeight();
 				} else {
 					// System.out.println("주문 실패 - 너무 배부름");
-					throw new FullException("주문 실패 - 너무 배부름");
+					throw new FullException("주문 실패 - 너무 배부릅니다.");
 				}
 			}
 		}
