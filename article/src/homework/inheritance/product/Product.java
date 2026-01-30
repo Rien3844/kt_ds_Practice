@@ -1,13 +1,15 @@
-package homework.inheritance;
+package homework.inheritance.product;
+
+import com.ktdsuniversity.edu.market.consumer.Consumer;
 
 import homework.inheritance.product.Product;
 
-public class Mart {
+public class Product {
 	Product[] products;
 	
 	private int inputMoney; // 받은돈, -상품가격해서 돌려줌(거스름돈)
 
-	public Mart(Product[] products) {
+	public Product(Product[] products) {
 		this.products = products;
 	}
 	

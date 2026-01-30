@@ -1,0 +1,8 @@
+package com.ktdsuniversity.edu.exceptions.custom;
+
+public class DevideZeroException extends RuntimeException {
+
+	public DevideZeroException(String message) {
+		super(message);
+	}
+}
