@@ -2,9 +2,8 @@ package homework.exceptions.restaurment;
 
 import homework.exceptions.restaurment.custom.DrunkenException;
 import homework.exceptions.restaurment.custom.FullException;
-import homework.exceptions.restaurment.custom.NotEnoughMoney;
+import homework.exceptions.restaurment.custom.NotEnoughMoneyException;
 import homework.exceptions.restaurment.custom.SoldOutException;
-import homework.exceptions.restaurment.custom.WithoutMenuException;
 
 public class RestuarantTest {
 
@@ -23,6 +22,7 @@ public class RestuarantTest {
 		outbackMenus[2] = new Menu(true, 0, 30, 5000, 15, "블랙조커"); // 주류
 		outbackMenus[3] = new Menu(false, 500, 0, 18000, 200, "토마호크 스테이크"); // 식사류
 		outbackMenus[4] = new Menu(false, 300, 0, 8000, 70, "토마토 스파게티"); // 식사류
+		// 정한 크기 넘어서 배열 만들때 - ArrayIndexOutOfBoundsException
 
 		Restuarant vips = new Restuarant("VIPS", vipsMenus, 1000, 10);
 		Restuarant outback = new Restuarant("OUTBACK", outbackMenus, 300, 3);
@@ -32,30 +32,15 @@ public class RestuarantTest {
 		Customer customer3 = new Customer("고객3", 10000);
 
 		try {
-			customer1.order(vips, 7);
-		} catch (DrunkenException de) {
-			System.out.println(de.getMessage());
-		} catch (FullException fe) {
-			System.out.println(fe.getMessage());
-		} catch (NotEnoughMoney nem) {
-			System.out.println(nem.getMessage());
-		} catch (SoldOutException soe) {
-			System.out.println(soe.getMessage());
-		} catch (WithoutMenuException wme) {
-			System.out.println(wme.getMessage());
-		} // 존재하지않는메뉴
-		try {
 			customer1.order(vips, 3);
 		} catch (DrunkenException de) {
 			System.out.println(de.getMessage());
 		} catch (FullException fe) {
 			System.out.println(fe.getMessage());
-		} catch (NotEnoughMoney nem) {
+		} catch (NotEnoughMoneyException nem) {
 			System.out.println(nem.getMessage());
 		} catch (SoldOutException soe) {
 			System.out.println(soe.getMessage());
-		} catch (WithoutMenuException wme) {
-			System.out.println(wme.getMessage());
 		}
 		try {
 			customer1.order(vips, 3);
@@ -63,12 +48,10 @@ public class RestuarantTest {
 			System.out.println(de.getMessage());
 		} catch (FullException fe) {
 			System.out.println(fe.getMessage());
-		} catch (NotEnoughMoney nem) {
+		} catch (NotEnoughMoneyException nem) {
 			System.out.println(nem.getMessage());
 		} catch (SoldOutException soe) {
 			System.out.println(soe.getMessage());
-		} catch (WithoutMenuException wme) {
-			System.out.println(wme.getMessage());
 		} // 배부름
 
 		try {
@@ -77,12 +60,10 @@ public class RestuarantTest {
 			System.out.println(de.getMessage());
 		} catch (FullException fe) {
 			System.out.println(fe.getMessage());
-		} catch (NotEnoughMoney nem) {
+		} catch (NotEnoughMoneyException nem) {
 			System.out.println(nem.getMessage());
 		} catch (SoldOutException soe) {
 			System.out.println(soe.getMessage());
-		} catch (WithoutMenuException wme) {
-			System.out.println(wme.getMessage());
 		}
 		try {
 			customer2.order(outback, 2);
@@ -90,12 +71,10 @@ public class RestuarantTest {
 			System.out.println(de.getMessage());
 		} catch (FullException fe) {
 			System.out.println(fe.getMessage());
-		} catch (NotEnoughMoney nem) {
+		} catch (NotEnoughMoneyException nem) {
 			System.out.println(nem.getMessage());
 		} catch (SoldOutException soe) {
 			System.out.println(soe.getMessage());
-		} catch (WithoutMenuException wme) {
-			System.out.println(wme.getMessage());
 		} // 너무 취함
 
 		try {
@@ -104,12 +83,10 @@ public class RestuarantTest {
 			System.out.println(de.getMessage());
 		} catch (FullException fe) {
 			System.out.println(fe.getMessage());
-		} catch (NotEnoughMoney nem) {
+		} catch (NotEnoughMoneyException nem) {
 			System.out.println(nem.getMessage());
 		} catch (SoldOutException soe) {
 			System.out.println(soe.getMessage());
-		} catch (WithoutMenuException wme) {
-			System.out.println(wme.getMessage());
 		}
 		try {
 			customer3.order(vips, 1);
@@ -117,13 +94,14 @@ public class RestuarantTest {
 			System.out.println(de.getMessage());
 		} catch (FullException fe) {
 			System.out.println(fe.getMessage());
-		} catch (NotEnoughMoney nem) {
+		} catch (NotEnoughMoneyException nem) {
 			System.out.println(nem.getMessage());
 		} catch (SoldOutException soe) {
 			System.out.println(soe.getMessage());
-		} catch (WithoutMenuException wme) {
-			System.out.println(wme.getMessage());// 재고부족
-		}
+		} // 품절
+
+		customer1.order(vips, 7);// 존재하지 않는 메뉴 >> 입력된 menuIndex의 값이 menu.length보다 긴경우.
+
 //		customer1.order(vips, 2);
 //		customer1.order(vips, 1);
 //		customer1.order(vips, 4);

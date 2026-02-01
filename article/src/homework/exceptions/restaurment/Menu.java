@@ -16,6 +16,10 @@ public class Menu {
 		this.price = price;
 		this.stock = stock;
 		this.name = name;
+		
+		if (this.name != null) {
+			System.out.println(this.name.equals(name));
+		}
 	}
 
 	public boolean getIsAlcohol() {
