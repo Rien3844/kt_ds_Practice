@@ -9,7 +9,7 @@ public class ConvenienceStore extends AbstractMart {
 	@Override
 	public int usePoint(Guest guest) {
 		int point = guest.getPoint();
-		if (point >= 10000) {
+		if (point >= 100) {
 			guest.usePoint(point);
 		}
 		return 0;

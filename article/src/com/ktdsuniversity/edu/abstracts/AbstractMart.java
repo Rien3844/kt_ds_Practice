@@ -41,7 +41,7 @@ public abstract class AbstractMart {
 		System.out.println("할인액 : " + this.discount(guest, amount));
 		System.out.println("매출액 : " + safe);
 		System.out.println("거슬러 줄 돈 : " + remainMoney);
-		System.out.println("남은 포인트 : " + guestPoint);
+		System.out.println("남은 포인트 : " + (guestPoint));
 
 		// 마트가 손님에게 거슬러 준다.
 		guest.giveMoney(this.remainMoney);
