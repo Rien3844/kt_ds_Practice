@@ -15,14 +15,7 @@ public class Restuarant {
 		this.name = name;
 		this.menus = menus;
 		this.maxFullRate = maxFullRate;
-		this.maxDrunkenRate = maxDrunkenRate;
-
-		if (this.name != null) {
-			System.out.println(this.name.equals(name));
-		}
-		if (this.menus != null) {
-			System.out.println(this.menus.equals(menus));
-		} // NullPointerException
+		this.maxDrunkenRate = maxDrunkenRate; // NullPointerException
 	}
 
 	public Menu[] getMenus() {

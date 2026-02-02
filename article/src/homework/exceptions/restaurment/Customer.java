@@ -13,10 +13,6 @@ public class Customer {
 	public Customer(String name, int money) {
 		this.name = name;
 		this.money = money;
-		
-		if (this.name != null) {
-			System.out.println(this.name.equals(name));
-		}
 	}
 
 	public String getName() {
@@ -73,8 +69,6 @@ public class Customer {
 					throw new FullException("주문 실패 - 너무 배부릅니다.");
 				}
 			}
-		}else { // menu == null
-			
 		}
 	}
 
