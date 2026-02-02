@@ -20,10 +20,11 @@ public class ListExam {
 			name = names.get(i);
 			System.out.println(name);
 		}
-		
+		System.out.println("-------------------------------");
 		for(String name2 : names) {
 			System.out.println(name2);
 		}
+		System.out.println("-------------------------------");
 		
 		int[] arr = new int[] {1, 2, 3};
 		for(int value : arr) {
