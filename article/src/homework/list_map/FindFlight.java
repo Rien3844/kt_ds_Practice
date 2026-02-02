@@ -27,3 +27,4 @@ public class FindFlight {
 		names.add("0005");
 	}
 }
+//리스트안에 비행기 찾아서 아니면 반복, 맞으면 다음 진행
