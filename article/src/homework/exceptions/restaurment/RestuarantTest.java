@@ -33,14 +33,8 @@ public class RestuarantTest {
 
 		try {
 			customer1.order(vips, 3);
-		} catch (DrunkenException de) {
-			System.out.println(de.getMessage());
-		} catch (FullException fe) {
-			System.out.println(fe.getMessage());
-		} catch (NotEnoughMoneyException nem) {
-			System.out.println(nem.getMessage());
-		} catch (SoldOutException soe) {
-			System.out.println(soe.getMessage());
+		} catch (DrunkenException | FullException | NotEnoughMoneyException | SoldOutException e) {
+			System.out.println(e.getMessage());
 		}
 		try {
 			customer1.order(vips, 3);
