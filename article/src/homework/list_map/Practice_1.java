@@ -23,49 +23,54 @@ public class Practice_1 {
 				System.out.println("\"" + inputFlightNum + "\"" + "편은 존재하지 않습니다.");
 				continue; // 다음 입력으로 넘어감
 			}
+			if (!flightNum.get(0).isReserv() && !flightNum.get(1).isReserv() && !flightNum.get(2).isReserv()
+					&& !flightNum.get(3).isReserv() && !flightNum.get(4).isReserv() && !flightNum.get(5).isReserv()
+					&& !flightNum.get(6).isReserv() && !flightNum.get(7).isReserv() && !flightNum.get(8).isReserv()) {
+				System.out.println("예약 가능한 좌석이 없습니다. 다른 비행기 편을 이용해 주세요.");
+			} else {
+				if (!flightNum.isEmpty()) {
+					System.out.println("\"" + inputFlightNum + "\"" + "편의 좌석 현황입니다. (O: 예약 가능, X: 예약 불가능)");
 
-			if (!flightNum.isEmpty()) {
-				System.out.println("\"" + inputFlightNum + "\"" + "편의 좌석 현황입니다. (O: 예약 가능, X: 예약 불가능)");
-
-				for (int i = 0; i < flightNum.size(); i++) {
-					String status;
-					if (flightNum.get(i).isReserv()) {
-						status = "O";
-					} else {
-						status = "X";
-					}
-					System.out.print(i + 1 + " : " + status + ", ");
-				}
-				while (true) {// 2.반복-좌석 예약
-					System.out.println("좌석 예약을 하려면 번호를 입력하세요 : ");
-					int getSeatNum = sc.nextInt();
-					sc.nextLine(); // 버퍼에 남은 개행문자 제거
-
-					FlightReservInfo selectSeat = flightNum.get(getSeatNum - 1);
-					if (selectSeat.isReserv()) {
-						System.out.println("\"" + getSeatNum + "\"" + "번 좌석을 예약하시겠습니까? (y/n) : ");
-						String confirm = sc.next();
-						if (confirm.equalsIgnoreCase("y")) {
-							selectSeat.setReserv(false);
-							System.out.println("\"" + getSeatNum + "\"" + "번 좌석이 예약되었습니다.");
-						} else if (confirm.equalsIgnoreCase("n")) {
-							System.out.println("예약이 취소되었습니다.");
+					for (int i = 0; i < flightNum.size(); i++) {
+						String status;
+						if (flightNum.get(i).isReserv()) {
+							status = "O";
 						} else {
-							System.out.println("옳바른 값을 입력해주세요.");
+							status = "X";
 						}
-						System.out.println("\"" + inputFlightNum + "\"" + "편의 좌석 현황입니다. (O: 예약 가능, X: 예약 불가능)");
+						System.out.print(i + 1 + " : " + status + ", ");
+					}
+					while (true) {// 2.반복-좌석 예약
+						System.out.println("좌석 예약을 하려면 번호를 입력하세요 : ");
+						int getSeatNum = sc.nextInt();
+						sc.nextLine(); // 버퍼에 남은 개행문자 제거
 
-						for (int i = 0; i < flightNum.size(); i++) {
-							String status;
-							if (flightNum.get(i).isReserv()) {
-								status = "O";
+						FlightReservInfo selectSeat = flightNum.get(getSeatNum - 1);
+						if (selectSeat.isReserv()) {
+							System.out.println("\"" + getSeatNum + "\"" + "번 좌석을 예약하시겠습니까? (y/n) : ");
+							String confirm = sc.next();
+							if (confirm.equalsIgnoreCase("y")) {
+								selectSeat.setReserv(false);
+								System.out.println("\"" + getSeatNum + "\"" + "번 좌석이 예약되었습니다.");
+							} else if (confirm.equalsIgnoreCase("n")) {
+								System.out.println("예약이 취소되었습니다.");
 							} else {
-								status = "X";
+								System.out.println("옳바른 값을 입력해주세요.");
 							}
-							System.out.print(i + 1 + " : " + status + ", ");
+							System.out.println("\"" + inputFlightNum + "\"" + "편의 좌석 현황입니다. (O: 예약 가능, X: 예약 불가능)");
+
+							for (int i = 0; i < flightNum.size(); i++) {
+								String status;
+								if (flightNum.get(i).isReserv()) {
+									status = "O";
+								} else {
+									status = "X";
+								}
+								System.out.print(i + 1 + " : " + status + ", ");
+							}
+						} else {
+							System.out.println("\"" + getSeatNum + "\"" + "번 좌석은 이미 예약된 좌석입니다. 다른 좌석을 입력하세요 : ");
 						}
-					} else {
-						System.out.println("\"" + getSeatNum + "\"" + "번 좌석은 이미 예약된 좌석입니다. 다른 좌석을 입력하세요 : ");
 					}
 				}
 			}
