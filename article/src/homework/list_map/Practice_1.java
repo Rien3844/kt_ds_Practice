@@ -10,7 +10,7 @@ public class Practice_1 {
 
 	public static void printFlightReservInfo(Map<String, List<FlightReservInfo>> flightList) {
 		String inputFlightNum = "";
-
+		boolean isSoldout =false;
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("비행기 편의 이름을 입력하면, 좌석 현황을 볼 수 있습니다.");
@@ -23,6 +23,7 @@ public class Practice_1 {
 				System.out.println("\"" + inputFlightNum + "\"" + "편은 존재하지 않습니다.");
 				continue; // 다음 입력으로 넘어감
 			}
+			
 			if (!flightNum.get(0).isReserv() && !flightNum.get(1).isReserv() && !flightNum.get(2).isReserv()
 					&& !flightNum.get(3).isReserv() && !flightNum.get(4).isReserv() && !flightNum.get(5).isReserv()
 					&& !flightNum.get(6).isReserv() && !flightNum.get(7).isReserv() && !flightNum.get(8).isReserv()) {
