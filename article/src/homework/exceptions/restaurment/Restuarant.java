@@ -97,7 +97,7 @@ public class Restuarant {
 		for (int i = 0; i < this.menus.size(); i++) {
 
 			System.out.print((i + 1) + ". ");
-			if (this.menus.get(i).getIsAlcohol()) {
+			if (this.menus.get(i).getItem() == Item.ALCOHOL) {
 				System.out.print(menus.get(i).getName());
 				System.out.print(" / " + this.menus.get(i).getPrice() + "원");
 				System.out.print(" / " + this.menus.get(i).getAlcohol() + "%");

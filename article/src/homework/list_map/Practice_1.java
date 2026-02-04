@@ -24,9 +24,9 @@ public class Practice_1 {
 				continue; // 다음 입력으로 넘어감
 			}
 			
-			if (!flightNum.get(0).isReserv() && !flightNum.get(1).isReserv() && !flightNum.get(2).isReserv()
-					&& !flightNum.get(3).isReserv() && !flightNum.get(4).isReserv() && !flightNum.get(5).isReserv()
-					&& !flightNum.get(6).isReserv() && !flightNum.get(7).isReserv() && !flightNum.get(8).isReserv()) {
+			if (!(flightNum.get(0).getReserve() == Reserve.FULL) && !(flightNum.get(1).getReserve() == Reserve.FULL) && !(flightNum.get(2).getReserve() == Reserve.FULL)
+					&& !(flightNum.get(3).getReserve() == Reserve.FULL) && !(flightNum.get(4).getReserve() == Reserve.FULL) && !(flightNum.get(5).getReserve() == Reserve.FULL)
+					&& !(flightNum.get(6).getReserve() == Reserve.FULL) && !(flightNum.get(7).getReserve() == Reserve.FULL) && !(flightNum.get(8).getReserve() == Reserve.FULL)) {
 				System.out.println("예약 가능한 좌석이 없습니다. 다른 비행기 편을 이용해 주세요.");
 			} else {
 				if (!flightNum.isEmpty()) {
@@ -34,7 +34,7 @@ public class Practice_1 {
 
 					for (int i = 0; i < flightNum.size(); i++) {
 						String status;
-						if (flightNum.get(i).isReserv()) {
+						if (flightNum.get(i).getReserve() == Reserve.EMTPY) {
 							status = "O";
 						} else {
 							status = "X";
@@ -47,11 +47,11 @@ public class Practice_1 {
 						sc.nextLine(); // 버퍼에 남은 개행문자 제거
 
 						FlightReservInfo selectSeat = flightNum.get(getSeatNum - 1);
-						if (selectSeat.isReserv()) {
+						if (selectSeat.getReserve() == Reserve.EMTPY) {
 							System.out.println("\"" + getSeatNum + "\"" + "번 좌석을 예약하시겠습니까? (y/n) : ");
 							String confirm = sc.next();
 							if (confirm.equalsIgnoreCase("y")) {
-								selectSeat.setReserv(false);
+								selectSeat.setReserve(Reserve.FULL);
 								System.out.println("\"" + getSeatNum + "\"" + "번 좌석이 예약되었습니다.");
 							} else if (confirm.equalsIgnoreCase("n")) {
 								System.out.println("예약이 취소되었습니다.");
@@ -62,7 +62,7 @@ public class Practice_1 {
 
 							for (int i = 0; i < flightNum.size(); i++) {
 								String status;
-								if (flightNum.get(i).isReserv()) {
+								if (flightNum.get(i).getReserve() == Reserve.EMTPY) {
 									status = "O";
 								} else {
 									status = "X";
@@ -88,37 +88,37 @@ public class Practice_1 {
 		flightList.put("0004", new ArrayList<>());
 
 		List<FlightReservInfo> reserv0002 = flightList.get("0002");
-		reserv0002.add(new FlightReservInfo(1, true));
-		reserv0002.add(new FlightReservInfo(2, true));
-		reserv0002.add(new FlightReservInfo(3, true));
-		reserv0002.add(new FlightReservInfo(4, true));
-		reserv0002.add(new FlightReservInfo(5, false));
-		reserv0002.add(new FlightReservInfo(6, true));
-		reserv0002.add(new FlightReservInfo(7, true));
-		reserv0002.add(new FlightReservInfo(8, true));
-		reserv0002.add(new FlightReservInfo(9, true));
+		reserv0002.add(new FlightReservInfo(1, Reserve.EMTPY));
+		reserv0002.add(new FlightReservInfo(2, Reserve.EMTPY));
+		reserv0002.add(new FlightReservInfo(3, Reserve.EMTPY));
+		reserv0002.add(new FlightReservInfo(4, Reserve.EMTPY));
+		reserv0002.add(new FlightReservInfo(5, Reserve.FULL));
+		reserv0002.add(new FlightReservInfo(6, Reserve.EMTPY));
+		reserv0002.add(new FlightReservInfo(7, Reserve.EMTPY));
+		reserv0002.add(new FlightReservInfo(8, Reserve.EMTPY));
+		reserv0002.add(new FlightReservInfo(9, Reserve.EMTPY));
 		// 1: O, 2: O, 3: O, 4: O, 5: X, 6: O, 7: O, 8: O, 9: O
 		List<FlightReservInfo> reserv0003 = flightList.get("0003");
-		reserv0003.add(new FlightReservInfo(1, false));
-		reserv0003.add(new FlightReservInfo(2, false));
-		reserv0003.add(new FlightReservInfo(3, false));
-		reserv0003.add(new FlightReservInfo(4, false));
-		reserv0003.add(new FlightReservInfo(5, false));
-		reserv0003.add(new FlightReservInfo(6, false));
-		reserv0003.add(new FlightReservInfo(7, false));
-		reserv0003.add(new FlightReservInfo(8, false));
-		reserv0003.add(new FlightReservInfo(9, false));
+		reserv0003.add(new FlightReservInfo(1, Reserve.FULL));
+		reserv0003.add(new FlightReservInfo(2, Reserve.FULL));
+		reserv0003.add(new FlightReservInfo(3, Reserve.FULL));
+		reserv0003.add(new FlightReservInfo(4, Reserve.FULL));
+		reserv0003.add(new FlightReservInfo(5, Reserve.FULL));
+		reserv0003.add(new FlightReservInfo(6, Reserve.FULL));
+		reserv0003.add(new FlightReservInfo(7, Reserve.FULL));
+		reserv0003.add(new FlightReservInfo(8, Reserve.FULL));
+		reserv0003.add(new FlightReservInfo(9, Reserve.FULL));
 		// 1: X, 2: X, 3: X, 4: X, 5: X, 6: X, 7: X, 8: X, 9: X
 		List<FlightReservInfo> reserv0004 = flightList.get("0004");
-		reserv0004.add(new FlightReservInfo(1, true));
-		reserv0004.add(new FlightReservInfo(2, false));
-		reserv0004.add(new FlightReservInfo(3, true));
-		reserv0004.add(new FlightReservInfo(4, true));
-		reserv0004.add(new FlightReservInfo(5, false));
-		reserv0004.add(new FlightReservInfo(6, true));
-		reserv0004.add(new FlightReservInfo(7, true));
-		reserv0004.add(new FlightReservInfo(8, false));
-		reserv0004.add(new FlightReservInfo(9, false));
+		reserv0004.add(new FlightReservInfo(1, Reserve.EMTPY));
+		reserv0004.add(new FlightReservInfo(2, Reserve.FULL));
+		reserv0004.add(new FlightReservInfo(3, Reserve.EMTPY));
+		reserv0004.add(new FlightReservInfo(4, Reserve.EMTPY));
+		reserv0004.add(new FlightReservInfo(5, Reserve.FULL));
+		reserv0004.add(new FlightReservInfo(6, Reserve.EMTPY));
+		reserv0004.add(new FlightReservInfo(7, Reserve.EMTPY));
+		reserv0004.add(new FlightReservInfo(8, Reserve.FULL));
+		reserv0004.add(new FlightReservInfo(9, Reserve.FULL));
 		// 1: O, 2: X, 3: O, 4: O, 5: X, 6: O, 7: O, 8: X, 9: X
 
 		// List

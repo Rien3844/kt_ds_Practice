@@ -2,11 +2,11 @@ package homework.list_map;
 
 public class FlightReservInfo {
 	private int seatNum;
-	private boolean isReserv;
+	private Reserve reserve;
 	
-	public FlightReservInfo(int seatNum, boolean isReserv) {
+	public FlightReservInfo(int seatNum, Reserve reserve) {
 		this.seatNum = seatNum;
-		this.isReserv = isReserv;
+		this.reserve = reserve;
 	}
 
 	public int getSeatNum() {
@@ -17,17 +17,17 @@ public class FlightReservInfo {
 		this.seatNum = seatNum;
 	}
 
-	public boolean isReserv() {
-		return isReserv;
+	public Reserve getReserve() {
+		return reserve;
 	}
-
-	public void setReserv(boolean isReserv) {
-		this.isReserv = isReserv;
+	
+	public void setReserve(Reserve reserve) {
+		this.reserve = reserve;
 	}
 
 	@Override
 	public String toString() {
-		return "FlightReservInfo [seatNum=" + seatNum + ", isReserv=" + isReserv + "]";
+		return "FlightReservInfo [seatNum=" + seatNum + ", isReserv=" + reserve + "]";
 	}
 	
 	

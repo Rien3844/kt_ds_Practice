@@ -52,7 +52,7 @@ public class Customer {
 
 		Menu menu = restuarnt.servMenu(this, menuIndex);
 		if (menu != null) {
-			if (menu.getIsAlcohol()) {
+			if (menu.getItem() == Item.ALCOHOL) {
 				if (!restuarnt.isDrunkenCustomer(this)) {
 					System.out.println("주문 성공");
 					this.addAlcoholRate(menu.getAlcohol());

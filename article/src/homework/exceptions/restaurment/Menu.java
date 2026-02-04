@@ -2,15 +2,15 @@ package homework.exceptions.restaurment;
 
 public class Menu {
 
-	private boolean isAlcohol;
+	private Item item;
 	private int weight;
 	private double alcohol;
 	private int price;
 	private int stock;
 	private String name;
 
-	public Menu(boolean isAlcohol, int weight, double alcohol, int price, int stock, String name) {
-		this.isAlcohol = isAlcohol;
+	public Menu(Item item, int weight, double alcohol, int price, int stock, String name) {
+		this.item = item;
 		this.weight = weight;
 		this.alcohol = alcohol;
 		this.price = price;
@@ -18,12 +18,12 @@ public class Menu {
 		this.name = name;
 	}
 
-	public boolean getIsAlcohol() {
-		return this.isAlcohol;
+	public Item getItem() {
+		return item;
 	}
 
-	public void setIsAlcohol(boolean isAlcohol) {
-		this.isAlcohol = isAlcohol;
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
 	public int getWeight() {
