@@ -34,6 +34,8 @@ public class Store {
 			System.out.println(this.items.get(index).getName() + " : 가능한 빨리 드세요. 유통기한 : " + this.items.get(index).getExpireDate());
 		} else if (expirationDate.isBefore(nowDate)) {// 유통기한이 오늘 날짜 02.04 이전
 			System.out.println(this.items.get(index).getName() + " : 소비 기한이 지나 판매하지않습니다. 유통기한 : " + this.items.get(index).getExpireDate());
+		}else {
+			System.out.println(this.items.get(index).getName() + " : 천~천히 드십셔~ 유통기한 : " + this.items.get(index).getExpireDate());
 		}
 	}
 }
