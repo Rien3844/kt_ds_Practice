@@ -57,7 +57,7 @@ public class Test {
 //			}
 //			return i;
 //		});
-		
+
 		int result4 = calc.calc(12, 5, (num1, num2) -> num1 % num2 == 0 ? 0 : 1);
 		System.out.println("num1이 num2의 배수라면 0을 반환, 아니면 1을 반환 : " + result4);
 	}
