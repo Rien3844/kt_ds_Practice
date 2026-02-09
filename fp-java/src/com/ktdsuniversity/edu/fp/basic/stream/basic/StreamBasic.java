@@ -140,7 +140,7 @@ public class StreamBasic {
 		
 		List<Dish> result = basic.getHealthyDishes();
 		System.out.println(result);
-		result.add(new Dish("곱창", FoodType.MEAT, 3000, DishType.MEAT)); 
+		//result.add(new Dish("곱창", FoodType.MEAT, 3000, DishType.MEAT)); 
 		// 수정 불가능한 리스트에 add를 하면 추가가 안되기에 에러 발생.
 
 		List<Dish> result2 = basic.getHealthyDishes2();
