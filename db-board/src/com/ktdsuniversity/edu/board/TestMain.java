@@ -2,8 +2,6 @@ package com.ktdsuniversity.edu.board;
 
 import java.util.List;
 
-import com.ktdsuniversity.edu.board.dao.BoardDao;
-import com.ktdsuniversity.edu.board.dao.ReplyDao;
 import com.ktdsuniversity.edu.board.db.helper.DataAccessHelper;
 import com.ktdsuniversity.edu.board.service.BoardService;
 import com.ktdsuniversity.edu.board.service.ReplyService;

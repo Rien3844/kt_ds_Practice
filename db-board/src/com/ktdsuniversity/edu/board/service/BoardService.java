@@ -1,10 +1,5 @@
 package com.ktdsuniversity.edu.board.service;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.ktdsuniversity.edu.board.dao.BoardDao;
