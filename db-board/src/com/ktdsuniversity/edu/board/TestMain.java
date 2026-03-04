@@ -1,5 +1,7 @@
 package com.ktdsuniversity.edu.board;
 
+import java.util.List;
+
 import com.ktdsuniversity.edu.board.dao.BoardDao;
 import com.ktdsuniversity.edu.board.vo.BoardVO;
 
@@ -29,5 +31,8 @@ public class TestMain {
 		BoardVO article = boardDao.readArticle("BO-20260303-000049");
 		System.out.println(article);
 		
+		// 게시글 전체 조회
+		List<BoardVO> allArticle = boardDao.readAllArticle();
+		System.out.println(allArticle);
 	}
 }

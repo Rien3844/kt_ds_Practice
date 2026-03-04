@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ktdsuniversity.edu.board.dao.query.BoardQuery;
 import com.ktdsuniversity.edu.board.db.helper.DataAccessHelper;
@@ -17,51 +19,8 @@ import com.ktdsuniversity.edu.board.vo.BoardVO;
  */
 public class BoardDao {
 
-	public BoardVO readArticle(String articleId) {
-		
-
-		DataAccessHelper dah = new DataAccessHelper("localhost", 1521, "XE", "BOARD", "BOARD");
-
-		try {
-			// UPDATE - 를 통해서 조회수를 1증가.
-			dah.preparedStatement(BoardQuery.makeUpdateViewCountQuery(), (pstmt) -> {
-				pstmt.setString(1, articleId);
-			});
-
-			dah.executeQuery(SQLType.UPDATE, null);
-			
-			// SELECT - 를 통해서 해당 ID를 가진 게시글의 내용 조회.	
-			BoardVO result = new BoardVO();
-			
-			dah.preparedStatement(BoardQuery.makeSelectOneQuery(), (pstmt) -> {
-				pstmt.setString(1, articleId);
-			});
-
-			dah.executeQuery(SQLType.SELECT, rs -> {
-				result.setId( rs.getString("ID") );
-				result.setTitle( rs.getString("TITLE") );
-				result.setContent( rs.getString("CONTENT") );
-				result.setViewCount( rs.getInt("VIEW_COUNT") );
-				result.setWriteDate( rs.getString("WRITE_DATE") );
-				result.setLatestModifyDate( rs.getString("LATEST_MODIFY_DATE") );
-			});
-			
-			dah.commit();
-			
-			return result;
-			
-		} catch (RuntimeException re) {
-			dah.rollback();
-			System.out.println(re.getMessage());
-		} finally {
-			dah.close();
-		}
-		return null;
-		
-	}
-	
 	public void deleteArticle(String articleId) {
-		
+
 		DataAccessHelper dah = new DataAccessHelper("localhost", 1521, "XE", "BOARD", "BOARD");
 
 		try {
@@ -77,9 +36,9 @@ public class BoardDao {
 		} finally {
 			dah.close();
 		}
-		
+
 	}
-	
+
 	public void modifyArticle(BoardVO modifyArticle) {
 
 		DataAccessHelper dah = new DataAccessHelper("localhost", 1521, "XE", "BOARD", "BOARD");
@@ -221,5 +180,80 @@ public class BoardDao {
 		}
 	}
 
+	public BoardVO readArticle(String articleId) {
 
+		DataAccessHelper dah = new DataAccessHelper("localhost", 1521, "XE", "BOARD", "BOARD");
+
+		try {
+			// UPDATE - 를 통해서 조회수를 1증가.
+			dah.preparedStatement(BoardQuery.makeUpdateViewCountQuery(), (pstmt) -> {
+				pstmt.setString(1, articleId);
+			});
+
+			dah.executeQuery(SQLType.UPDATE, null);
+
+			// SELECT - 를 통해서 해당 ID를 가진 게시글의 내용 조회.
+			BoardVO result = new BoardVO();
+
+			dah.preparedStatement(BoardQuery.makeSelectOneQuery(), (pstmt) -> {
+				pstmt.setString(1, articleId);
+			});
+
+			dah.executeQuery(SQLType.SELECT, rs -> {
+				result.setId(rs.getString("ID"));
+				result.setTitle(rs.getString("TITLE"));
+				result.setContent(rs.getString("CONTENT"));
+				result.setViewCount(rs.getInt("VIEW_COUNT"));
+				result.setWriteDate(rs.getString("WRITE_DATE"));
+				result.setLatestModifyDate(rs.getString("LATEST_MODIFY_DATE"));
+			});
+
+			dah.commit();
+
+			return result;
+
+		} catch (RuntimeException re) {
+			dah.rollback();
+			System.out.println(re.getMessage());
+		} finally {
+			dah.close();
+		}
+		return null;
+
+	}
+
+	public List<BoardVO> readAllArticle() {
+
+		DataAccessHelper dah = new DataAccessHelper("localhost", 1521, "XE", "BOARD", "BOARD");
+
+		try {
+			// SELECT - 를 통해서 해당 ID를 가진 게시글의 내용 조회.
+			List<BoardVO> result = new ArrayList<>();
+			
+			dah.preparedStatement(BoardQuery.makeSelectAllQuery(), null);
+
+			dah.executeQuery(SQLType.SELECT, rs -> {
+				BoardVO eachArticle = new BoardVO();
+				eachArticle.setId(rs.getString("ID"));
+				eachArticle.setTitle(rs.getString("TITLE"));
+				eachArticle.setContent(rs.getString("CONTENT"));
+				eachArticle.setViewCount(rs.getInt("VIEW_COUNT"));
+				eachArticle.setWriteDate(rs.getString("WRITE_DATE"));
+				eachArticle.setLatestModifyDate(rs.getString("LATEST_MODIFY_DATE"));
+				result.add(eachArticle);
+			});
+
+			dah.commit();
+
+			return result;
+
+		} catch (RuntimeException re) {
+			dah.rollback();
+			System.out.println(re.getMessage());
+		} finally {
+			dah.close();
+		}
+		return null;
+
+	}
 }
